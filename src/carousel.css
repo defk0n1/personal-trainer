@@ -1,0 +1,12 @@
+.carousel-wrapper{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+canvas{
+    animation: fade-in 5s ease 1s forwards;
+
+
+}

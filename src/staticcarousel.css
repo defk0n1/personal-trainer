@@ -1,0 +1,38 @@
+*:focus {
+    outline: 0;
+    outline: none;
+  }
+
+  .slick-slide {
+    height :70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+ }
+ 
+
+
+.slick-slide img{
+    width: 90%;
+    height :90%;
+    padding: 5%;
+}
+
+
+.carousel{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: whitesmoke;
+    text-align: center;
+
+
+}
+
+.carousel-title{
+    font-size: 2em;
+    font-family: "Montserrat", sans-serif;
+    color: rgb(255, 0, 0);
+
+}
