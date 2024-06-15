@@ -1,4 +1,5 @@
 import dumbbell from '../assets/dumbbell.png';
+import '../Navbar.css'
 
 export default function Navbar() {
     return (

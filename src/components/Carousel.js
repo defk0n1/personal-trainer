@@ -2,7 +2,7 @@
 import * as THREE from 'three'
 import { useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { Image, Environment, ScrollControls, useScroll, useTexture } from '@react-three/drei'
+import { Image, Environment, ScrollControls, useScroll, useTexture , OrbitControls, DragControls} from '@react-three/drei'
 import Model from './model'
 import { easing } from 'maath'
 import "../carousel.css"
@@ -17,38 +17,50 @@ const isMobile = () => {
 const fieldofView = isMobile ? 15 : 10;
 
 
-export default function Carousel(){
-  
- 
-  return(
-  <div className="carousel-wrapper"> 
-  <Canvas camera={{ position: [0, 0, 100], fov: fieldofView }} >
-    <color attach="background" args={["black"]} />
 
+
+
+
+export default function Carousel(){
+  if (isMobile()){
+
+    return(
+      <div className="carousel-wrapper"> 
+        <div className="carousel-title"><h1>TRANSFORMATIONS.</h1></div>
+
+      <Canvas camera={{ position: [0, 0, 10], fov: fieldofView }} style={{height: '80vh'}} >
+    <color attach="background" args={["black"]} />
     <fog attach="fog" args={['#ff0000', 8.5, 12]} />
-    <ScrollControls pages={4} >
+    <ScrollControls pages={4} horizontal={true} style={{ scrollbarWidth:'none' }} infinite >
       <Rig>
         <Main />
        <Model/>
       </Rig>
     </ScrollControls>
   </Canvas>
+  </div> 
+
+
+    )
+  }
+  else{
+  
+  return(
+  <div className="carousel-wrapper"> 
+  <div className="carousel-title"><h1>TRANSFORMATIONS.</h1></div>
+  <Canvas camera={{ position: [0, 0, 10], fov: fieldofView }} style={{height: '80vh'}}>
+    <color attach="background" args={["black"]} />
+    <fog attach="fog" args={['#ff0000', 8.5, 12]} />
+    <OrbitControls enablePan={false} enableRotate={true} enableZoom={false}  minPolarAngle={Math.PI/2} maxPolarAngle={Math.PI/2}/>
+        <Main />
+        <Model/>
+  </Canvas>
   </div> )
+  }
 };
 
-function Rig(props) {
-  const ref = useRef()
-  const scroll = useScroll()
-  useFrame((state, delta) => {
-    ref.current.rotation.y = -scroll.offset * (Math.PI * 2) // Rotate contents
-    state.events.update() // Raycasts every frame rather than on pointer-move
-    easing.damp3(state.camera.position, [-state.pointer.x * 2, state.pointer.y + 1.5, 10], 0.3, delta) // Move camera
-    state.camera.lookAt(0, 0, 0) // Look at center
-  })
-  return <group ref={ref} {...props} />
-}
 
-function Main({ radius = 1.3, count = 8 }) {
+function Main({ radius = 1.5, count = 8 }) {
   return Array.from({ length: count }, (_, i) => (
     <Card
       key={i}
@@ -76,19 +88,15 @@ function Card({ url, ...props }) {
   )
 }
 
-function Banner(props) {
+
+function Rig(props) {
   const ref = useRef()
-  const texture = useTexture('/work_.png')
-  texture.wrapS = texture.wrapT = THREE.RepeatWrapping
   const scroll = useScroll()
   useFrame((state, delta) => {
-    ref.current.material.time.value += Math.abs(scroll.delta) * 4
-    ref.current.material.map.offset.x += delta / 2
+    ref.current.rotation.y = -scroll.offset * (Math.PI * 2) // Rotate contents
+    state.events.update() // Raycasts every frame rather than on pointer-move
+    easing.damp3(state.camera.position, [-state.pointer.x * 2, state.pointer.y + 1.5, 10], 0.3, delta) // Move camera
+    state.camera.lookAt(0, 0, 0) // Look at center
   })
-  return (
-    <mesh ref={ref} {...props}>
-      <cylinderGeometry args={[1.6, 1.6, 0.14, 128, 16, true]} />
-      <meshSineMaterial map={texture} map-anisotropy={16} map-repeat={[30, 1]} side={THREE.DoubleSide} toneMapped={false} />
-    </mesh>
-  )
+  return <group ref={ref} {...props} />
 }

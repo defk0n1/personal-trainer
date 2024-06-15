@@ -1,8 +1,8 @@
 .navbar{
     background-color: rgba(0, 0, 0, 0.504);
-
-    -webkit-backdrop-filter: blur(2px);
-    backdrop-filter: blur(2px);
+    z-index: 100;
+    /* -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px); */
     height:10vh;
     width:100%;
     display: flex;

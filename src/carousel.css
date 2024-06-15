@@ -3,10 +3,29 @@
     height: 100vh;
     margin: 0;
     padding: 0;
+    
 }
+
+.carousel-title{
+    height: 20vh;
+    display: flex;
+    background-color: black;
+    color:red;
+    align-items:center ;
+    justify-content: center;
+    flex-direction: column;
+    width: 100vw;
+}
+
+.carousel-title h1{
+    font-size: 2rem;
+    
+}
+
 
 canvas{
     animation: fade-in 5s ease 1s forwards;
+    height: 100%;
 
 
 }

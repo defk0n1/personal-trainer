@@ -49,16 +49,17 @@ function Carousel() {
    ;
     return (
       <div className="slider-container carousel">
-        <div className="carousel-title">
-            TRANSFORMATIONS
-        </div>
+          <div className="carousel-title"><h1>TESTIMONIALS.</h1></div>
+
         <div className="carousel-sub">
-            <p>Witness the amazing results that have been reached by my clients.</p></div>
+            <p>Check out what my previous clients have to say</p></div>
 
 
         <Slider {...settings}>
           <div>
           <img src={banda} alt="" className="carousel-img"></img>
+          
+
           </div>
           <div>
           <img src={banda} alt="" className="carousel-img"></img>
