@@ -3,12 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@gsap/react": "^2.1.1",
     "@pmndrs/assets": "^1.6.0",
     "@react-three/drei": "^9.106.0",
     "@react-three/fiber": "^8.16.8",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "gsap": "^3.12.5",
     "maath": "^0.10.7",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -40,5 +42,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "homepage": "https://defk0n1.github.io/personal-trainer",
+
+
 }

@@ -15,9 +15,9 @@ function Carousel() {
         centerPadding: "60px",
         slidesToShow: 3,
         speed: 500,
-        autoplay:true,
-        autoplaySpeed:2000,
-        adaptiveHeight:true,
+        // autoplay:true,
+        // autoplaySpeed:2000,
+        // adaptiveHeight:true,
 
         responsive: [
             {
@@ -58,8 +58,6 @@ function Carousel() {
         <Slider {...settings}>
           <div>
           <img src={banda} alt="" className="carousel-img"></img>
-          
-
           </div>
           <div>
           <img src={banda} alt="" className="carousel-img"></img>

@@ -78,11 +78,56 @@
     justify-content: space-between;
     width: 30px;
     height: 21px;
+    padding-top: 0.6rem;
+    
   }
   
   .toggle-button .bar {
     height: 3px;
     width: 100%;
-    background-color: rgb(255, 0, 0);
+    background-color: rgb(255, 255, 255);
     border-radius: 10px;
+  }
+
+
+
+  @media only screen and (max-width: 768px){
+      .toggle-button {
+        display: flex;
+      }
+      .navli{
+        display: none;
+      }
+
+      .navlist-mobile{
+        flex-direction: column; 
+        width: 100vw;
+      }
+    .navli-mobile{
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        background-color: red;
+    }
+
+    .navli-mobile a{
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+        /* font-family: "ClashDisplay-Medium", sans-serif; */
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+    }
+
+    .navlogo-mobile{
+        display:none;
+    }
+    
+
+    
+    
+    
+
+    
+
+
   }

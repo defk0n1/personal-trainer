@@ -1,8 +1,40 @@
 import "../hero.css" 
 import hero from "../assets/heroo.jpg"
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 
 function Hero() {
+    useGSAP(()=>{
+        var tl = gsap.timeline();
+        tl.from(".hero-heading",
+            {
+                opacity:0,
+                yPercent:-30,
+                duration:1,
+                ease:'power1'
+
+
+            }
+        );
+        tl.from(".hero-sub", {
+            opacity:0,
+            yPercent:-30,
+            duration:1,
+            ease:'power1'
+
+
+        });
+        tl.from(".hero-buttons", {
+            opacity:0,
+            yPercent:-30,
+            duration:1,
+            ease:'power1'
+
+
+        });
+    })
+
     return(
     <div className="hero-wrapper">
         <div className="hero-content">
